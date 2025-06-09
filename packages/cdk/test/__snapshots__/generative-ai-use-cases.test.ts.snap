@@ -2189,7 +2189,7 @@ exports[`GenerativeAiUseCases matches the snapshot 5`] = `
       "Type": "AWS::IAM::Role",
       "UpdateReplacePolicy": "Delete",
     },
-    "APIApiDeployment3A502123457785fef82d1521cf56189f5ab6294b": {
+    "APIApiDeployment3A5021238d22e1d629290d8f570fba4fe11717dd": {
       "DeletionPolicy": "Delete",
       "DependsOn": [
         "APIApiApi4XXDCF913C8",
@@ -2339,7 +2339,7 @@ exports[`GenerativeAiUseCases matches the snapshot 5`] = `
       ],
       "Properties": {
         "DeploymentId": {
-          "Ref": "APIApiDeployment3A502123457785fef82d1521cf56189f5ab6294b",
+          "Ref": "APIApiDeployment3A5021238d22e1d629290d8f570fba4fe11717dd",
         },
         "RestApiId": {
           "Ref": "APIApiFFA96F67",
@@ -2352,6 +2352,12 @@ exports[`GenerativeAiUseCases matches the snapshot 5`] = `
     "APIApiFFA96F67": {
       "DeletionPolicy": "Delete",
       "Properties": {
+        "EndpointConfiguration": {
+          "IpAddressType": "dualstack",
+          "Types": [
+            "EDGE",
+          ],
+        },
         "Name": "Api",
       },
       "Type": "AWS::ApiGateway::RestApi",
