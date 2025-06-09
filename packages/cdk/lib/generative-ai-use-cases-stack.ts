@@ -76,6 +76,7 @@ export class GenerativeAiUseCasesStack extends Stack {
       queryDecompositionEnabled: params.queryDecompositionEnabled,
       rerankingModelId: params.rerankingModelId,
       crossAccountBedrockRoleArn: params.crossAccountBedrockRoleArn,
+      ipv6Enabled: params.ipv6Enabled,
       allowedIpV4AddressRanges: params.allowedIpV4AddressRanges,
       allowedIpV6AddressRanges: params.allowedIpV6AddressRanges,
       userPool: auth.userPool,
@@ -169,6 +170,8 @@ export class GenerativeAiUseCasesStack extends Stack {
       hostName: params.hostName,
       domainName: params.domainName,
       hostedZoneId: params.hostedZoneId,
+      // Network
+      ipv6Enabled: params.ipv6Enabled,
     });
 
     // RAG

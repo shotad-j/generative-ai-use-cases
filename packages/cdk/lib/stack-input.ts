@@ -149,7 +149,8 @@ export const stackInputSchema = z.object({
       })
     )
     .default([]),
-  // WAF
+  // Newtork
+  ipv6Enabled: z.boolean().default(true),
   allowedIpV4AddressRanges: z.array(z.string()).nullish(),
   allowedIpV6AddressRanges: z.array(z.string()).nullish(),
   allowedCountryCodes: z.array(z.string()).nullish(),

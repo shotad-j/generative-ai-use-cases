@@ -6,6 +6,8 @@ import {
   LambdaIntegration,
   RestApi,
   ResponseType,
+  IpAddressType,
+  EndpointType,
 } from 'aws-cdk-lib/aws-apigateway';
 import { UserPool, UserPoolClient } from 'aws-cdk-lib/aws-cognito';
 import { IFunction, Runtime } from 'aws-cdk-lib/aws-lambda';
@@ -41,6 +43,7 @@ export interface BackendApiProps {
   readonly rerankingModelId?: string | null;
   readonly customAgents: Agent[];
   readonly crossAccountBedrockRoleArn?: string | null;
+  readonly ipv6Enabled: boolean;
   readonly allowedIpV4AddressRanges?: string[] | null;
   readonly allowedIpV6AddressRanges?: string[] | null;
 
@@ -719,6 +722,12 @@ export class Api extends Construct {
       defaultCorsPreflightOptions: {
         allowOrigins: Cors.ALL_ORIGINS,
         allowMethods: Cors.ALL_METHODS,
+      },
+      endpointConfiguration: {
+        types: [EndpointType.EDGE],
+        ipAddressType: props.ipv6Enabled
+          ? IpAddressType.DUAL_STACK
+          : IpAddressType.IPV4,
       },
       cloudWatchRole: true,
       defaultMethodOptions: commonAuthorizerProps,

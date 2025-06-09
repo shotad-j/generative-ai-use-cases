@@ -45,6 +45,7 @@ export interface WebProps {
   readonly samlAuthEnabled: boolean;
   readonly samlCognitoDomainName?: string | null;
   readonly samlCognitoFederatedIdentityProviderName?: string | null;
+  readonly ipv6Enabled: boolean;
   readonly agentNames: string[];
   readonly inlineAgents: boolean;
   readonly cert?: ICertificate;
@@ -127,6 +128,7 @@ export class Web extends Construct {
       cloudFrontLoggingBucketProps: commonBucketProps,
       cloudFrontLoggingBucketAccessLogBucketProps: commonBucketProps,
       cloudFrontDistributionProps: {
+        enableIpv6: props.ipv6Enabled,
         defaultBehavior: {
           responseHeadersPolicy: responseHeadersPolicy,
         },
