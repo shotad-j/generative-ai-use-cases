@@ -1616,7 +1616,7 @@ npx -w packages/cdk cdk bootstrap --region us-east-1
 アプリケーションの IPv6 アクセスを無効化したい場合、`ipv6Enabled` に `false` を指定することで、Amazon CloudFront と Amazon API Gateway を IPv4 Only に設定できます。(デフォルトは `true` で、IPv4 と IPv6 のデュアルスタック構成です)
 
 > [!NOTE]
-> この設定は `allowedIpV4AddressRanges` や `allowedIpV6AddressRanges` の設定とは独立しています。また、S3 署名付き URL へのアクセスや Lambda 関数の呼び出しは常に IPv4 Only となる点にご注意ください。
+> この設定は `allowedIpV4AddressRanges` や `allowedIpV6AddressRanges` の設定とは独立しています。また、S3 署名付き URL へのアクセスやブラウザ上からの AWS API の呼び出し (テキストのストリーミング生成や音声合成、書き起こしなど) は常に IPv4 Only となる点、Lambda 関数 URL へのアクセス (MCP チャット) は常にデュアルスタック構成となる点にご注意ください。
 
 **[parameter.ts](/packages/cdk/parameter.ts) を編集**
 

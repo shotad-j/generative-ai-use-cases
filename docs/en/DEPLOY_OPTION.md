@@ -1609,7 +1609,7 @@ npx -w packages/cdk cdk bootstrap --region us-east-1
 If you want to disable IPv6 access to the application, you can set `ipv6Enabled` to `false` to configure Amazon CloudFront and Amazon API Gateway to use IPv4 only. (The default is `true`, which provides a dual-stack configuration with both IPv4 and IPv6.)
 
 > [!NOTE]
-> This setting is independent of the `allowedIpV4AddressRanges` and `allowedIpV6AddressRanges` settings. Also, please note that access to S3 presigned URLs and Lambda function invocations will always be IPv4-only.
+> This setting is independent of the `allowedIpV4AddressRanges` and `allowedIpV6AddressRanges` settings. Also, please note that access to S3 signed URLs and AWS API calls from browsers (such as text streaming generation, voice synthesis, transcription, etc.) is always IPv4-only, while access to Lambda function URLs (MCP Chat) always uses a dual-stack configuration.
 
 **Edit [parameter.ts](/packages/cdk/parameter.ts)**
 
