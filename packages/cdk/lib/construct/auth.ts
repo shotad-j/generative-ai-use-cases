@@ -63,12 +63,12 @@ export class Auth extends Construct {
 
     if (props.allowedIpV4AddressRanges || props.allowedIpV6AddressRanges) {
       const ipRanges = [
-        ...(props.allowedIpV4AddressRanges
-          ? props.allowedIpV4AddressRanges
-          : []),
-        ...(props.allowedIpV6AddressRanges
-          ? props.allowedIpV6AddressRanges
-          : []),
+        ...(props.allowedIpV4AddressRanges == null // null or undefined
+          ? ['0.0.0.0/0']
+          : props.allowedIpV4AddressRanges),
+        ...(props.allowedIpV6AddressRanges == null // null or undefined
+          ? ['::/0']
+          : props.allowedIpV6AddressRanges),
       ];
 
       idPool.authenticatedRole.attachInlinePolicy(
