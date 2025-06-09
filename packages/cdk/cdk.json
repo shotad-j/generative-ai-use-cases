@@ -59,6 +59,7 @@
     "inlineAgents": false,
     "mcpEnabled": false,
     "flows": [],
+    "ipv6Enabled": false,
     "allowedIpV4AddressRanges": null,
     "allowedIpV6AddressRanges": null,
     "allowedCountryCodes": null,
